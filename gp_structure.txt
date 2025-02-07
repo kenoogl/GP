@@ -1,0 +1,83 @@
+
+
+GP_DATA
+├─ GP_Init
+|    ├─ set_Data
+|    └─ set_Diff
+|
+└─ main
+    ├─ bar_print
+    ├─ make_target
+    │    └─ add_noize
+    ├─ RegInit
+    │    ├─ create_island_data
+    │    |    ├─ f_object_compute
+    |    |    |    └─ calculate
+    |    |    |          ├─ load
+    |    |    |          |    └─ digits_designate
+    |    |    |          ├─ my_div
+    |    |    |          ├─ diff_cal
+    |    |    |          |    ├─ diff_load
+    |    |    |          |    |    ├─ grad_x
+    |    |    |          |    |    └─ grad_yx
+    |    |    |          |    ├─ diff_mul
+    |    |    |          |    |    ├─ make_diff_list
+    |    |    |          |    |    ├─ calculate
+    |    |    |          |    |    └─ diff_cal
+    |    |    |          |    |    
+    |    |    |          |    ├─ diff_div
+    |    |    |          |    |    ├─ make_diff_list
+    |    |    |          |    |    ├─ calculate
+    |    |    |          |    |    └─ diff_cal()
+    |    |    |          |    |    └─ my_div
+    |    |    |          |    ├─ diff_cal()
+    |    |    |          |    ├─ diff_func
+    |    |    |          |    └─ calculate
+    |    |    |          └─ ffunc
+    │    |    ├─ node_f
+    |    |    |    └─ sentence_calculate
+    |    |    |          ├─ digits_designate
+    |    |    |          ├─ detect_num
+    |    |    |          └─ sentence_function
+    |    |    |                ├─ detect_num
+    |    |    |                ├─ ffunc
+    |    |    |                └─ digits_designate
+    │    |    └─ dis_whole_f
+    |    |         └─ fit_compute
+    |    └─ set_Init
+    |
+    ├─ island_model
+    │   ├─ make_data
+    |   |     └─ create_island_data
+    |   |           └─ make_list
+    |   |                 ├─ make_element
+    |   |                 └─ make_ope
+    |   |                       ├─ mutate
+    |   |                       |    ├─ choice_O
+    |   |                       |    ├─ make_element_0
+    |   |                       |    |     ├─ choice_V
+    |   |                       |    |     └─ num_return
+    |   |                       |    ├─ make_element
+    |   |                       |    └─ num_return
+    |   |                       └─ make_element(choice_O)
+    |   |                            └─ choice_V
+    |   |                                 └─ num_return
+    |   ├─ fitness
+    |   ├─ time_print
+    |   ├─ A_island 
+    |   |     ├─ solu_evo
+    |   |     |    └─ evolution
+    |   |     |          ├─ cross_over
+    |   |     |          ├─ dict_copy
+    |   |     |          ├─ make_ope
+    |   |     |          ├─ create_island_data
+    |   |     |          └─ model_save
+    |   |     |                └─ LARS_UN
+    |   |     |                     ├─ lars
+    |   |     |                     └─ covtest
+    |   |     └─ best_model_print
+    |   ├─ model_marge
+    |   ├─ best_model_print
+    |   └─ trans_popu
+    ├─ bar_print
+    └─ best_model_print

@@ -1,0 +1,863 @@
+High fit_value is good.
+Limit:10, Ope_Node:1
+delta_t:0.01, delta_x:0.02
+tmin:1, nt:100
+xmin:0, nx:200
+operation:["*", "/", "d_dx", "d_dt"]
+simulation_burgers.txt Load.
+config island:1, gn:32
+Importance determinate method:Keisu
+2025-02-07T14:45:05.234
+Any["t", "x", "delta_t", "delta_x"]
+load data:["u", "x", "t"], graph make variable:["u", "x", "t"]
+U:(200, 100)
+
+1 gp start
+time : 0.45 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 1.57 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 1.99 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 1
+gp cost time : 2.444 seconds
+
+2 gp start
+time : 0.06 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000584615, f=-0.207533*u + -0.152521*(t*(u*d_dx[u])) + -0.135943*d_dx[u] + 0.030910 :0.413+0.304+0.271
+time : 0.48 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000584615, f=-0.207533*u + -0.152521*(t*(u*d_dx[u])) + -0.135943*d_dx[u] + 0.030910 :0.413+0.304+0.271
+time : 0.68 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000584615, f=-0.207533*u + -0.152521*(t*(u*d_dx[u])) + -0.135943*d_dx[u] + 0.030910 :0.413+0.304+0.271
+save data : 2
+gp cost time : 3.451 seconds
+
+3 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.55 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 1.11 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 3
+gp cost time : 4.953 seconds
+
+4 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.51 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.84 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 4
+gp cost time : 6.144 seconds
+
+5 gp start
+time : 0.10 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0007926911, f=-0.199469*u + 0.030597 :0.989
+time : 0.54 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0007926911, f=-0.199469*u + 0.030597 :0.989
+time : 0.88 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0007926911, f=-0.199469*u + 0.030597 :0.989
+save data : 5
+gp cost time : 7.371 seconds
+
+6 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000649382, f=-0.148118*d_dx[u] + -0.141174*u + 0.020946 :0.507+0.484
+time : 0.50 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599985, f=-0.214729*u + -0.146073*d_dx[u] + 0.032010 :0.593+0.403
+time : 1.05 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 6
+gp cost time : 8.930 seconds
+
+7 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0007051613, f=-0.140209*u + 0.127308*d_dx[(u*u)] + 0.017455 :0.512+0.465
+time : 0.41 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0007051613, f=-0.140209*u + 0.127308*d_dx[(u*u)] + 0.017455 :0.512+0.465
+time : 0.81 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0007051613, f=-0.140209*u + 0.127308*d_dx[(u*u)] + 0.017455 :0.512+0.465
+save data : 7
+gp cost time : 10.091 seconds
+
+8 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000490418, f=-1.137932*(u*d_dx[(u*u)]) + 0.149893*(u*{(d_dx[u]*d_dx[u]) /u}) + -0.130643*d_dx[u] + -0.071211*(u*d_dt[d_dx[u]]) + -0.054805*u + 0.008799 :0.709+0.093+0.081+0.044+0.034
+time : 0.53 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000490418, f=-1.137932*(u*d_dx[(u*u)]) + 0.149893*(u*{(d_dx[u]*d_dx[u]) /u}) + -0.130643*d_dx[u] + -0.071211*(u*d_dt[d_dx[u]]) + -0.054805*u + 0.008799 :0.709+0.093+0.081+0.044+0.034
+time : 1.01 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000490418, f=-1.137932*(u*d_dx[(u*u)]) + 0.149893*(u*{(d_dx[u]*d_dx[u]) /u}) + -0.130643*d_dx[u] + -0.071211*(u*d_dt[d_dx[u]]) + -0.054805*u + 0.008799 :0.709+0.093+0.081+0.044+0.034
+save data : 8
+gp cost time : 11.493 seconds
+
+9 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.60 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 1.12 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 9
+gp cost time : 12.978 seconds
+
+10 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0005158692, f=1.214591*(u*(u*d_dx[u])) + -0.218706*u + 0.027371 :0.842+0.152
+time : 0.39 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0005158692, f=1.214591*(u*(u*d_dx[u])) + -0.218706*u + 0.027371 :0.842+0.152
+time : 0.75 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0005158692, f=1.214591*(u*(u*d_dx[u])) + -0.218706*u + 0.027371 :0.842+0.152
+save data : 10
+gp cost time : 14.084 seconds
+
+11 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.45 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.79 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 11
+gp cost time : 15.214 seconds
+
+12 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.47 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.75 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 12
+gp cost time : 16.256 seconds
+
+13 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000395950, f=-0.246709*u + -0.151157*d_dx[u] + -0.051566*(d_dx[u]*d_dt[d_dx[u]]) + 0.036297 :0.525+0.322+0.110
+time : 0.45 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000395950, f=-0.246709*u + -0.151157*d_dx[u] + -0.051566*(d_dx[u]*d_dt[d_dx[u]]) + 0.036297 :0.525+0.322+0.110
+time : 0.81 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000395950, f=-0.246709*u + -0.151157*d_dx[u] + -0.051566*(d_dx[u]*d_dt[d_dx[u]]) + 0.036297 :0.525+0.322+0.110
+save data : 13
+gp cost time : 17.410 seconds
+
+14 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.49 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 1.07 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 14
+gp cost time : 18.968 seconds
+
+15 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599362, f=-0.817956*(u*(u*u)) + -0.167047*u + -0.145451*d_dx[u] + 0.028003 :0.720+0.147+0.128
+time : 0.75 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599362, f=-0.817956*(u*(u*u)) + -0.167047*u + -0.145451*d_dx[u] + 0.028003 :0.720+0.147+0.128
+time : 1.48 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599362, f=-0.817956*(u*(u*u)) + -0.167047*u + -0.145451*d_dx[u] + 0.028003 :0.720+0.147+0.128
+save data : 15
+gp cost time : 20.814 seconds
+
+16 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0007785569, f=-0.276252*u + 0.018605*d_dx[d_dt[u]] + 0.042202 :0.915+0.062
+time : 0.42 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0007785569, f=-0.276252*u + 0.018605*d_dx[d_dt[u]] + 0.042202 :0.915+0.062
+time : 0.80 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0007785569, f=-0.276252*u + 0.018605*d_dx[d_dt[u]] + 0.042202 :0.915+0.062
+save data : 16
+gp cost time : 22.033 seconds
+
+17 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000595751, f=-0.207028*u + -0.148087*d_dx[u] + -0.086057*(u*d_dx[(u*u)]) + 0.031261 :0.469+0.335+0.195
+time : 0.61 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000595751, f=-0.207028*u + -0.148087*d_dx[u] + -0.086057*(u*d_dx[(u*u)]) + 0.031261 :0.469+0.335+0.195
+time : 1.00 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000595751, f=-0.207028*u + -0.148087*d_dx[u] + -0.086057*(u*d_dx[(u*u)]) + 0.031261 :0.469+0.335+0.195
+save data : 17
+gp cost time : 23.419 seconds
+
+18 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000594203, f=-1.668534*((u*u)*(u*u)) + -0.178679*u + -0.146401*d_dx[u] + 0.027683 :0.833+0.089+0.073
+time : 0.54 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000594203, f=-1.668534*((u*u)*(u*u)) + -0.178679*u + -0.146401*d_dx[u] + 0.027683 :0.833+0.089+0.073
+time : 1.05 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000594203, f=-1.668534*((u*u)*(u*u)) + -0.178679*u + -0.146401*d_dx[u] + 0.027683 :0.833+0.089+0.073
+save data : 18
+gp cost time : 24.917 seconds
+
+19 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.52 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.81 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 19
+gp cost time : 25.986 seconds
+
+20 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.53 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.86 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 20
+gp cost time : 27.229 seconds
+
+21 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.51 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.96 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 21
+gp cost time : 28.672 seconds
+
+22 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.49 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.80 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 22
+gp cost time : 29.857 seconds
+
+23 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.51 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.78 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 23
+gp cost time : 30.905 seconds
+
+24 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0004725379, f=-0.156090*(x*(d_dx[u]*d_dx[u])) + -0.110748*u + 0.007334*x + 0.009850 :0.553+0.393+0.026
+time : 0.36 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0004725379, f=-0.156090*(x*(d_dx[u]*d_dx[u])) + -0.110748*u + 0.007334*x + 0.009850 :0.553+0.393+0.026
+time : 0.70 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0004725379, f=-0.156090*(x*(d_dx[u]*d_dx[u])) + -0.110748*u + 0.007334*x + 0.009850 :0.553+0.393+0.026
+save data : 24
+gp cost time : 31.956 seconds
+
+25 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.42 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.87 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 25
+gp cost time : 33.048 seconds
+
+26 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500915, f=-1.182062*(u*(u*u)) + -0.952131*(u*d_dx[u]) + -0.129628*u + 0.023731 :0.518+0.418+0.057
+time : 0.56 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500915, f=-1.182062*(u*(u*u)) + -0.952131*(u*d_dx[u]) + -0.129628*u + 0.023731 :0.518+0.418+0.057
+time : 0.95 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500915, f=-1.182062*(u*(u*u)) + -0.952131*(u*d_dx[u]) + -0.129628*u + 0.023731 :0.518+0.418+0.057
+save data : 26
+gp cost time : 34.398 seconds
+
+27 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.35 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000234451, f=-1.027660*(u*d_dx[u]) + -0.124672*(u*d_dt[d_dx[u]]) + -0.119040*u + 0.018055 :0.808+0.098+0.094
+time : 0.89 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000234451, f=-1.027660*(u*d_dx[u]) + -0.124672*(u*d_dt[d_dx[u]]) + -0.119040*u + 0.018055 :0.808+0.098+0.094
+save data : 27
+gp cost time : 35.644 seconds
+
+28 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.65 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 1.19 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 28
+gp cost time : 37.179 seconds
+
+29 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.59 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 1.16 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 29
+gp cost time : 38.771 seconds
+
+30 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.40 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.62 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 30
+gp cost time : 39.715 seconds
+
+31 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.44 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.81 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 31
+gp cost time : 40.903 seconds
+
+32 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.46 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.75 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 32
+gp cost time : 42.015 seconds
+
+33 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+time : 0.49 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+time : 1.14 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+save data : 33
+gp cost time : 43.704 seconds
+
+34 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.53 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.89 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 34
+gp cost time : 44.942 seconds
+
+35 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.40 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.76 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 35
+gp cost time : 46.065 seconds
+
+36 gp start
+time : 0.01 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.36 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.72 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 36
+gp cost time : 47.151 seconds
+
+37 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.37 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.85 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 37
+gp cost time : 48.362 seconds
+
+38 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000597213, f=-0.984476*(u*(u*u)) + -0.146082*d_dx[u] + -0.139963*u + 0.024572 :0.772+0.115+0.110
+time : 0.49 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000597213, f=-0.984476*(u*(u*u)) + -0.146082*d_dx[u] + -0.139963*u + 0.024572 :0.772+0.115+0.110
+time : 0.88 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000597213, f=-0.984476*(u*(u*u)) + -0.146082*d_dx[u] + -0.139963*u + 0.024572 :0.772+0.115+0.110
+save data : 38
+gp cost time : 49.672 seconds
+
+39 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500946, f=-0.954343*(u*d_dx[u]) + -0.212399*u + 0.031608 :0.816+0.182
+time : 0.59 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500929, f=-0.954680*(u*d_dx[u]) + -0.211137*u + 0.031418 :0.818+0.181
+time : 1.15 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500929, f=-0.954680*(u*d_dx[u]) + -0.211137*u + 0.031418 :0.818+0.181
+save data : 39
+gp cost time : 51.175 seconds
+
+40 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+time : 0.54 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+time : 1.08 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+save data : 40
+gp cost time : 52.630 seconds
+
+41 gp start
+time : 0.01 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000597753, f=-1.041984*(u*(u*u)) + -0.145998*d_dx[u] + -0.137326*u + 0.024398 :0.777+0.109+0.102
+time : 0.59 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000597320, f=-0.941402*(u*(u*u)) + -0.147592*u + -0.145902*d_dx[u] + 0.025553 :0.746+0.117+0.116
+time : 1.18 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000597320, f=-0.941402*(u*(u*u)) + -0.147592*u + -0.145902*d_dx[u] + 0.025553 :0.746+0.117+0.116
+save data : 41
+gp cost time : 54.327 seconds
+
+42 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000605601, f=-0.186247*u + -0.147135*d_dx[u] + 0.027724 :0.536+0.423
+time : 0.59 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 1.21 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 42
+gp cost time : 55.923 seconds
+
+43 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.55 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 1.17 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 43
+gp cost time : 57.530 seconds
+
+44 gp start
+time : 0.01 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.46 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.86 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 44
+gp cost time : 58.846 seconds
+
+45 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000518990, f=-1.040821*(u*(u*u)) + -0.940003*(u*d_dx[u]) + -0.177377*u + 0.030372 :0.478+0.432+0.082
+time : 0.43 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000518990, f=-1.040821*(u*(u*u)) + -0.940003*(u*d_dx[u]) + -0.177377*u + 0.030372 :0.478+0.432+0.082
+time : 0.85 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000518990, f=-1.040821*(u*(u*u)) + -0.940003*(u*d_dx[u]) + -0.177377*u + 0.030372 :0.478+0.432+0.082
+save data : 45
+gp cost time : 60.132 seconds
+
+46 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.44 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+time : 0.86 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+save data : 46
+gp cost time : 61.370 seconds
+
+47 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.57 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.99 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 47
+gp cost time : 62.752 seconds
+
+48 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.40 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 0.99 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 48
+gp cost time : 64.224 seconds
+
+49 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000597130, f=-0.969309*(u*(u*u)) + -0.146065*d_dx[u] + -0.141604*u + 0.024760 :0.771+0.116+0.113
+time : 0.56 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+time : 1.00 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+save data : 49
+gp cost time : 65.726 seconds
+
+50 gp start
+time : 0.00 seconds
+generation : 1
+compute result finish
+island:-1 -> fit=-0.0000539847, f=-0.156816*u + -0.150265*d_dx[u] + -0.015944*d_dx[(u*u)] + 0.012745*(u*d_dx[d_dx[u]]) + 0.024254 :0.451+0.432+0.046+0.037
+time : 0.56 seconds
+generation : 2
+compute result finish
+island:-1 -> fit=-0.0000539847, f=-0.156816*u + -0.150265*d_dx[u] + -0.015944*d_dx[(u*u)] + 0.012745*(u*d_dx[d_dx[u]]) + 0.024254 :0.451+0.432+0.046+0.037
+time : 1.10 seconds
+generation : 3
+compute result finish
+island:-1 -> fit=-0.0000539847, f=-0.156816*u + -0.150265*d_dx[u] + -0.015944*d_dx[(u*u)] + 0.012745*(u*d_dx[d_dx[u]]) + 0.024254 :0.451+0.432+0.046+0.037
+save data : 50
+gp cost time : 67.371 seconds
+island: 1 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island: 2 -> fit=-0.0000584615, f=-0.207533*u + -0.152521*(t*(u*d_dx[u])) + -0.135943*d_dx[u] + 0.030910 :0.413+0.304+0.271
+island: 3 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island: 4 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island: 5 -> fit=-0.0007926911, f=-0.199469*u + 0.030597 :0.989
+island: 6 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island: 7 -> fit=-0.0007051613, f=-0.140209*u + 0.127308*d_dx[(u*u)] + 0.017455 :0.512+0.465
+island: 8 -> fit=-0.0000490418, f=-1.137932*(u*d_dx[(u*u)]) + 0.149893*(u*{(d_dx[u]*d_dx[u]) /u}) + -0.130643*d_dx[u] + -0.071211*(u*d_dt[d_dx[u]]) + -0.054805*u + 0.008799 :0.709+0.093+0.081+0.044+0.034
+island: 9 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:10 -> fit=-0.0005158692, f=1.214591*(u*(u*d_dx[u])) + -0.218706*u + 0.027371 :0.842+0.152
+island:11 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:12 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:13 -> fit=-0.0000395950, f=-0.246709*u + -0.151157*d_dx[u] + -0.051566*(d_dx[u]*d_dt[d_dx[u]]) + 0.036297 :0.525+0.322+0.110
+island:14 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:15 -> fit=-0.0000599362, f=-0.817956*(u*(u*u)) + -0.167047*u + -0.145451*d_dx[u] + 0.028003 :0.720+0.147+0.128
+island:16 -> fit=-0.0007785569, f=-0.276252*u + 0.018605*d_dx[d_dt[u]] + 0.042202 :0.915+0.062
+island:17 -> fit=-0.0000595751, f=-0.207028*u + -0.148087*d_dx[u] + -0.086057*(u*d_dx[(u*u)]) + 0.031261 :0.469+0.335+0.195
+island:18 -> fit=-0.0000594203, f=-1.668534*((u*u)*(u*u)) + -0.178679*u + -0.146401*d_dx[u] + 0.027683 :0.833+0.089+0.073
+island:19 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:20 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:21 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:22 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:23 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:24 -> fit=-0.0004725379, f=-0.156090*(x*(d_dx[u]*d_dx[u])) + -0.110748*u + 0.007334*x + 0.009850 :0.553+0.393+0.026
+island:25 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:26 -> fit=-0.0000500915, f=-1.182062*(u*(u*u)) + -0.952131*(u*d_dx[u]) + -0.129628*u + 0.023731 :0.518+0.418+0.057
+island:27 -> fit=-0.0000234451, f=-1.027660*(u*d_dx[u]) + -0.124672*(u*d_dt[d_dx[u]]) + -0.119040*u + 0.018055 :0.808+0.098+0.094
+island:28 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:29 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:30 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:31 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:32 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:33 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+island:34 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:35 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:36 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:37 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:38 -> fit=-0.0000597213, f=-0.984476*(u*(u*u)) + -0.146082*d_dx[u] + -0.139963*u + 0.024572 :0.772+0.115+0.110
+island:39 -> fit=-0.0000500929, f=-0.954680*(u*d_dx[u]) + -0.211137*u + 0.031418 :0.818+0.181
+island:40 -> fit=-0.0000570726, f=-0.180129*u + -0.148779*d_dx[u] + -0.039390*(u*d_dt[d_dx[u]]) + 0.026968 :0.489+0.403+0.107
+island:41 -> fit=-0.0000597320, f=-0.941402*(u*(u*u)) + -0.147592*u + -0.145902*d_dx[u] + 0.025553 :0.746+0.117+0.116
+island:42 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:43 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:44 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:45 -> fit=-0.0000518990, f=-1.040821*(u*(u*u)) + -0.940003*(u*d_dx[u]) + -0.177377*u + 0.030372 :0.478+0.432+0.082
+island:46 -> fit=-0.0000599695, f=-0.209787*u + -0.146282*d_dx[u] + 0.031266 :0.588+0.410
+island:47 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:48 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:49 -> fit=-0.0000500953, f=-0.954280*(u*d_dx[u]) + -0.212631*u + 0.031643 :0.817+0.182
+island:50 -> fit=-0.0000539847, f=-0.156816*u + -0.150265*d_dx[u] + -0.015944*d_dx[(u*u)] + 0.012745*(u*d_dx[d_dx[u]]) + 0.024254 :0.451+0.432+0.046+0.037
