@@ -668,14 +668,18 @@ function GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
     main(U_ori, path*name, noize, XT, path, Loop)
 
     close(F)
-
 end
 
+using Profile
+Profile.clear()
+GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) # コンパイルのためのダミー
+@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
+
+io=open("profile.txt", "w")
+Profile.print(IOContext(io, :displaysize => (24, 500)), noisefloor=2)
+close(io)
 
 # GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
-
-GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
-
 
 # diffusion,sinの場合、データがないため、nx=100で実行する必要がある。
 # GP_DATA(1, 100, 0, 100, "simulation_diffusion.txt", 0, "", 50)
