@@ -276,7 +276,7 @@ function solu_evo(data, island, fit_array, list1)
 end
 
 # ";" : キーワード引数
-function best_model_print(list_fit, island_num; pri=true, RE=false)
+function print_best_model(list_fit, island_num; pri=true, RE=false)
     maxi = Dict{String, Any}("fit" => -100.0)
     for i in 1:size(list_fit)[1]
         if maxi["fit"] < list_fit[i]["fit"]
@@ -305,7 +305,7 @@ function A_island(i_d)
 
     solu_evo(data, island, fit_array, model_fits)
 
-    best_model_print(model_fits, island_num, pri=false)
+    print_best_model(model_fits, island_num, pri=false)
     
     return [island, predict_map, fit_array, 0, model_fits]
 end
@@ -388,7 +388,7 @@ function island_model(data, start, gp_n=0)
         end
         model_fits = model_marge(kari)
 
-        Maxi_model = best_model_print(model_fits, -1; pri=true, RE=true)
+        Maxi_model = print_best_model(model_fits, -1; pri=true, RE=true)
         
         if Maxi < Maxi_model["fit"]
             Maxi = Maxi_model["fit"]
@@ -404,21 +404,28 @@ function island_model(data, start, gp_n=0)
 end
 
 function dis_whole_f(y, x)
-    d = fit_compute(y, x)
+    @timeit to "fit_compute" begin
+        d = fit_compute(y, x)
+    end
 
     return isnan(d) ? -Inf : abs(d)
 end
 
 function node_f(dict1)
     l = Dict()
-    f = sentence_calculate(dict1, dict1["len"], l)
+    @timeit to "sentence_calculate*" begin
+        f = sentence_calculate(dict1, dict1["len"], l)
+    end
 
     return f, l
 end
 
 function f_object_compute(d)
     sub_dict = Dict()
-    sdu = calculate(d, d["len"], sub_dict)
+
+    @timeit to "calculate*" begin
+        sdu = calculate(d, d["len"], sub_dict)
+    end
 
     d["subexp"] = sub_dict
     if ndims(sdu) < 1
@@ -429,16 +436,25 @@ function f_object_compute(d)
 end
 
 function create_island_data(d, data)
-    obj = f_object_compute(d)
-    mf, ll = node_f(d)
+    @timeit to "f_object_compute*" begin
+        obj = f_object_compute(d)
+    end
+
+    @timeit to "node_f*" begin
+        mf, ll = node_f(d)
+    end
     
     # x微分せずにt微分している場合, objをInfで再生成
-    if isnothing(findfirst("d_dx", mf)) && (!isnothing(findfirst("d_dt", mf)))
-        obj = ones(size(U)[1]-2, size(U)[2]-2)*Inf
+    @timeit to "re_gen_ddt" begin
+        if isnothing(findfirst("d_dx", mf)) && (!isnothing(findfirst("d_dt", mf)))
+            obj = ones(size(U)[1]-2, size(U)[2]-2)*Inf
+        end
     end
 
     # 欠損データがある場合
-    ave = mean(obj)
+    @timeit to "stat_mean" begin
+        ave = mean(obj)
+    end
     if isnan(ave*0.0)
         return Dict(
             "dict" => d,
@@ -456,30 +472,36 @@ function create_island_data(d, data)
     end
 
     # 複雑度を算出 -> juliaではindex関数が同じ動作をしないため、ロジックを変更
-    global count = 0
-    for v in vcat(OPE, V)
-        i = 1
-        # 文字列が含まれなくなる（i=nothing）までループ
-        while !isnothing(i)
-            # fのi番目以降の文字列にvが含まれるか検索し、最初のindexを返す
-            i = findnext(v, mf, i)
-            # 含まれれば、iにその次のindexを設定し、countする。
-            if !isnothing(i)
-                i = i[1]+1
-                global count += 1
+    @timeit to "cal_complexity" begin
+        global count = 0
+        for v in vcat(OPE, V)
+            i = 1
+            # 文字列が含まれなくなる（i=nothing）までループ
+            while !isnothing(i)
+                # fのi番目以降の文字列にvが含まれるか検索し、最初のindexを返す
+                i = findnext(v, mf, i)
+                # 含まれれば、iにその次のindexを設定し、countする。
+                if !isnothing(i)
+                    i = i[1]+1
+                    global count += 1
+                end
             end
         end
     end
+
+    cor::Float64 = @timeit to "dis_whole_f*" dis_whole_f(data, obj)
+    var::Float64 = @timeit to "stat_var" Statistics.var(obj, corrected=false)
+    nrm::Float64 = @timeit to "stat_norm" norm(obj.-ave, 2)
 
     return Dict(
         "dict" => d, 
         "formula" => string(mf), 
         "complexity" => count, 
         "simu" => obj, 
-        "cor" => dis_whole_f(data, obj), 
+        "cor" => cor, 
         "ave" => ave, 
-        "var" => Statistics.var(obj, corrected=false), 
-        "l2norm" => norm(obj.-ave, 2), 
+        "var" => var, 
+        "l2norm" => nrm, 
         "importance" => 0,
         "age" => 0,
         "score" => 0.0
@@ -488,10 +510,16 @@ end
 
 function RegInit(data)
     reg_init = Vector(undef, length(V))
+
     for i in 1:size(V)[1]
-        reg_init[i] = create_island_data(Dict("1" => ["load", V[i]], "len" => 1), data)
+        @timeit to "create_island_data*" begin
+            reg_init[i] = create_island_data(Dict("1" => ["load", V[i]], "len" => 1), data)
+        end
     end
-    set_Init(reg_init)
+
+    @timeit to "set_Init" begin
+        set_Init(reg_init)
+    end
 end
 
 # 機械的に変換しただけ（テスト未実施）
@@ -519,7 +547,10 @@ function add_noize(U_ori, noize)
 end
 
 function make_target(U, noize, XT)
-    U_ori = add_noize(U, noize)
+    @timeit to "add_noize" begin
+        U_ori = add_noize(U, noize)
+    end
+
     T_min = XT["T_min"]
     X_min = XT["X_min"]
     Nt = XT["Nt"]
@@ -555,20 +586,29 @@ function main(U, name, noize, XT, path, Loop)
     bar_print(Loop, 0, 0.0)
     stave = 0.0
 
-    # Loop回 方程式を推定
+    # Loop回の試行
     for i = 1:Loop
         st = now()
-        data = make_target(U, noize, XT)
 
-        RegInit(data)
+        @timeit to "make_target*" begin
+            data = make_target(U, noize, XT)
+        end
+
+        @timeit to "RegInit*" begin
+            RegInit(data)
+        end
         
         println(F,"============================================================")
-        println(F, "\nGeneration $i start")
-        Fit_value[i], model[i], Array[i], Front[i] = island_model(data, now(), i)
+        println(F, "\nTRIAL $i start")
+
+        @timeit to "island_model*" begin
+            Fit_value[i], model[i], Array[i], Front[i] = island_model(data, now(), i)
+        end
 
         println(F, "save data : $i")
         Dtime = now() - ST # 最初からの時間
-        @printf(F, "Total time : %5.3f sec. / Gen. %d time : %5.3f sec.\n", Dtime.value/1000, i, (now()-st).value/1000)
+        @printf(F, "Total time : %5.3f sec. / TRIAL %d time : %5.3f sec.\n", 
+                Dtime.value/1000, i, (now()-st).value/1000)
 
         stave = (stave*(i-1) + (now()-st).value/1000) / i # i回目までの平均
         
@@ -582,7 +622,9 @@ function main(U, name, noize, XT, path, Loop)
     println(F,"\n============================================================")
 
     for i in 1:size(Front)[1]
-        best_model_print(Front[i][end], i, pri=true)
+        @timeit to "print_best_model" begin
+            print_best_model(Front[i][end], i, pri=true)
+        end
     end
 
     Dtime = now() - ST
@@ -612,7 +654,7 @@ end
 
 function GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
 
-    @timeit to "GP_DATA" begin
+    @timeit to "GP_DATA*" begin
 
         global F = open("JuliaLog.txt", "w")
 
@@ -669,11 +711,11 @@ function GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
 
         v = ["u","x","t"]
 
-        @timeit to "GP_Init" begin
+        @timeit to "GP_Init*" begin
             GP_Init(v, x, t)
         end
     
-        @timeit to "main" begin
+        @timeit to "main*" begin
             main(U_ori, path*name, noize, XT, path, Loop)
         end
             
