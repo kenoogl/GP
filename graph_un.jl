@@ -12,8 +12,8 @@ global V = []
 
 function set_Data(v, d)
     global V = v
-    println(size(v))
-    println(size(d))
+    # println(size(v))
+    # println(size(d))
 
     for i in 1:size(v)[1]
         Data[v[i]] = d[i]

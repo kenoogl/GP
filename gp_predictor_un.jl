@@ -542,6 +542,7 @@ function bar_print(N, i, ta)
     println("$bar : $percentage $p done. Remaining time is $h:$m:$s [h/m/s]")
 end
 
+
 function main(U, name, noize, XT, path, Loop)
     ST = now() # ms
 
@@ -559,12 +560,13 @@ function main(U, name, noize, XT, path, Loop)
 
         RegInit(data)
         
-        println(F, "\n$i gp start")
+        println(F,"============================================================")
+        println(F, "\nGeneration $i start")
         Fit_value[i], model[i], Array[i], Front[i] = island_model(data, now(), i)
 
         println(F, "save data : $i")
         Dtime = now() - ST # 最初からの時間
-        @printf(F, "gp cost time : %5.3f seconds\n", Dtime.value/1000)
+        @printf(F, "Total time : %5.3f sec. / Gen. %d time : %5.3f sec.\n", Dtime.value/1000, i, (now()-st).value/1000)
 
         stave = (stave*(i-1) + (now()-st).value/1000) / i # i回目までの平均
         
@@ -575,9 +577,15 @@ function main(U, name, noize, XT, path, Loop)
         bar_print(Loop, i, stave)
     end
 
+    println(F,"\n============================================================")
+
     for i in 1:size(Front)[1]
         best_model_print(Front[i][end], i, pri=true)
     end
+
+    Dtime = now() - ST
+    @printf(F, "Elapsed time : %5.3f sec.\n", Dtime.value/1000)
+    println("Elapsed time : ", Dtime.value/1000, " sec.")
 end
 
 
@@ -597,8 +605,6 @@ function GP_Init(v, x, t)
 
     println(F, "load data:$v, graph make variable:$V")
     println(F, "U:", size(U))
-    println("load data:$v, graph make variable:$V")
-    println("U:", size(U))
 end
 
 
