@@ -5,12 +5,14 @@ using Random
 using Printf
 using SharedArrays
 using Distributed
+using TimerOutputs
 
 include("txt_read.jl")
 include("graph_un.jl")
 include("compute_un.jl")
 include("regression.jl")
 
+const to = TimerOutput()
 
 Limit    = 10 #node number max
 Ope_Node = 1
@@ -609,66 +611,79 @@ end
 
 
 function GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
-    global F = open("JuliaLog.txt", "w")
 
-    # Uori:32bit浮動小数点数の配列, v:ヘッダーデータ
-    U_ori, v = read_txt(name)
+    @timeit to "GP_DATA" begin
 
-    global delta_t = v["delta_t"][1]
-    global delta_x = v["delta_x"][1]
-    println(F, "High fit_value is good.")
-    println(F, "Limit:", Limit, ", Ope_Node:", Ope_Node)
-    println(F, "delta_t:", delta_t, ", delta_x:", delta_x)
-    println(F, "tmin:", tmin, ", nt:", nt)
-    println(F, "xmin:", xmin, ", nx:", nx)
-    println(F, "operation:", OPE)
-    println(F, name, " Load.")
-    println(F, "config island:", Num_island, ", gn:", gn)
-    println(F, "Importance determinate method:", Importance_moji)
-    println(F, now())
-    println(F, keys(v))
+        global F = open("JuliaLog.txt", "w")
 
-    Nt = nt
-    Nx = nx
-    T_min = tmin+1  # Juliaでは1始まりのため+1
-    X_min = xmin+1  # Juliaでは1始まりのため+1
+        # Uori:32bit浮動小数点数の配列, v:ヘッダーデータ
+        U_ori, v = read_txt(name)
 
-    if nt == 0
-        Nt = size(U_ori, 1) - 2
-        print(F, "Nt:", Nt)
-    end
-    if nx == 0
-        Nx = size(U_ori, 2)
-        print(F, "Nx:", Nx)
-    end
+        global delta_t = v["delta_t"][1]
+        global delta_x = v["delta_x"][1]
+        println(F, "High fit_value is good.")
+        println(F, "Limit:", Limit, ", Ope_Node:", Ope_Node)
+        println(F, "delta_t:", delta_t, ", delta_x:", delta_x)
+        println(F, "tmin:", tmin, ", nt:", nt)
+        println(F, "xmin:", xmin, ", nx:", nx)
+        println(F, "operation:", OPE)
+        println(F, name, " Load.")
+        println(F, "config island:", Num_island, ", gn:", gn)
+        println(F, "Importance determinate method:", Importance_moji)
+        println(F, now())
+        println(F, keys(v))
 
-    global U = U_ori[X_min:X_min+Nx-1, T_min:T_min+Nt-1]
+        Nt = nt
+        Nx = nx
+        T_min = tmin+1  # Juliaでは1始まりのため+1
+        X_min = xmin+1  # Juliaでは1始まりのため+1
 
-    if "x" in keys(v)
-        x = v["x"][X_min:X_min+Nx-1]
-    else
-        x = [(X_min+x-1)*delta_x for x in 1:Nx]
-    end
+        if nt == 0
+            Nt = size(U_ori, 1) - 2
+            print(F, "Nt:", Nt)
+        end
+        if nx == 0
+            Nx = size(U_ori, 2)
+            print(F, "Nx:", Nx)
+        end
 
-    if "t" in keys(v)
-        t = v["t"][T_min:T_min+Nt-1]
-    else
-        t = [(T_min+t-1)*delta_t for t in 1:Nt]
-    end
+        global U = U_ori[X_min:X_min+Nx-1, T_min:T_min+Nt-1]
 
-    XT = Dict(
-        "T_min" => T_min,
-        "Nt"    => Nt,
-        "X_min" => X_min,
-        "Nx"    => Nx)
+        if "x" in keys(v)
+            x = v["x"][X_min:X_min+Nx-1]
+        else
+            x = [(X_min+x-1)*delta_x for x in 1:Nx]
+        end
 
-    v = ["u","x","t"]
+        if "t" in keys(v)
+            t = v["t"][T_min:T_min+Nt-1]
+        else
+            t = [(T_min+t-1)*delta_t for t in 1:Nt]
+        end
 
-    GP_Init(v, x, t)
-    main(U_ori, path*name, noize, XT, path, Loop)
+        XT = Dict(
+            "T_min" => T_min,
+            "Nt"    => Nt,
+            "X_min" => X_min,
+            "Nx"    => Nx)
 
-    close(F)
+        v = ["u","x","t"]
+
+        @timeit to "GP_Init" begin
+            GP_Init(v, x, t)
+        end
+    
+        @timeit to "main" begin
+            main(U_ori, path*name, noize, XT, path, Loop)
+        end
+            
+        close(F)
+    end # "GP_DATA"
 end
+
+GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) #just compile
+GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
+show(to)
 
 #using Profile
 #Profile.clear()
@@ -679,12 +694,12 @@ end
 #Profile.print(IOContext(io, :displaysize => (24, 500)), noisefloor=2)
 #close(io)
 
-using Profile, PProf
-Profile.init(n = 10^7, delay = 0.01)
-@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) #just compile
-Profile.clear()
-@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
-pprof()
+#using Profile, PProf
+#Profile.init(n = 10^7, delay = 0.01)
+#@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) #just compile
+#Profile.clear()
+#@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
+#pprof()
 
 # GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
 
