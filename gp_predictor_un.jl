@@ -681,8 +681,8 @@ end
 
 using Profile, PProf
 Profile.init(n = 10^7, delay = 0.01)
-Profile.clear()
 @profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) #just compile
+Profile.clear()
 @profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
 pprof()
 
