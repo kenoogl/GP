@@ -670,14 +670,21 @@ function GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
     close(F)
 end
 
-using Profile
-Profile.clear()
-GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) # コンパイルのためのダミー
-@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
+#using Profile
+#Profile.clear()
+#GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) # コンパイルのためのダミー
+#@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
 
-io=open("profile.txt", "w")
-Profile.print(IOContext(io, :displaysize => (24, 500)), noisefloor=2)
-close(io)
+#io=open("profile.txt", "w")
+#Profile.print(IOContext(io, :displaysize => (24, 500)), noisefloor=2)
+#close(io)
+
+using Profile, PProf
+Profile.init(n = 10^7, delay = 0.01)
+Profile.clear()
+@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 1) #just compile
+@profile GP_DATA(1, 100, 0, 200, "simulation_burgers.txt", 0, "", 50)
+pprof()
 
 # GP_DATA(tmin, nt, xmin, nx, name, noize, path, Loop)
 
